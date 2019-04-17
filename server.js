@@ -2,6 +2,7 @@ const express = require('express');
 const hbs = require('hbs');
 const bodyParser = require('body-parser');
 const api_call1 = require('./public/api_call_1.js');
+const api_call2 = require('./public/api_call_2.js');
 const port = process.env.PORT || 8080;
 
 var app = express();
@@ -42,6 +43,30 @@ app.post('/weather', urlencodedParser, async (request, response) => {
     }
 
 });
+
+app.get('/picture', (request, response) => {
+    response.render('form2.hbs');
+});
+
+app.post('/picture', urlencodedParser, async (request, response) => {
+    console.log(request.body.picture_input);
+    try {
+        if (request.body.picture_input === null) throw "Enter an item";
+
+        let pictureOut = await api_call2.get_pictures(request.body.picture_input);
+        // console.log(weatherOut);
+        console.log(pictureOut);
+        response.render('form2.hbs', {
+            output: pictureOut
+        });
+    }catch (e) {
+        response.render('form2.hbs', {
+            output: e
+        });
+    }
+
+});
+
 
 app.listen(port, () => {
     console.log(`Server is up on port ${port}`);
