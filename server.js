@@ -24,11 +24,19 @@ app.get('/', (request, response) => {
 });
 
 app.post('/weather', urlencodedParser, async (request, response) => {
-    let weatherOut = await api_call1.get_weather(request.body);
-
+    // console.log(request.body.country_input);
+    try {
+        let weatherOut = await api_call1.get_weather(request.body.country_input);
+        // console.log(weatherOut);
         response.render('form1.hbs', {
             output: weatherOut.main
         });
+    }catch (e) {
+        response.render('form1.hbs', {
+            output: e
+        });
+    }
+
 });
 
 app.listen(port, () => {
