@@ -12,7 +12,7 @@ var get_cards = (num) => {
             // const weather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat_lng.lat}&lon=${lat_lng.lng}${key1}`);
             // console.log(JSON.stringify(weather.data.weather[0]));
             // resolve(weather.data.weather[0])
-            const cards = await axios
+            const cards = await axios.get(`https://deckofcardsapi.com/api/deck/<<deck_id>>/draw/?count=${num}`)
 
         } catch (e) {
 
