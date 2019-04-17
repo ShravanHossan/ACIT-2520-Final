@@ -34,18 +34,9 @@ app.get('/cards', (request, response) => {
 app.post('/cards', urlencodedParser, async (request, response) => {
     // console.log(request.body.country_input);
     try {
-        // console.log(request.body.card_input);
         let cards = await api_call1.get_cards(request.body.card_input);
-        // console.log(weatherOut);
-        let objects = [];
-        for (var i = 0; i < cards.length; i ++) {
-            objects[i] = { image: cards[i], link: cards[i] };
-        }
-        var data = { objects: objects };
-        // console.log(data);
-
         response.render('form1.hbs', {
-            objects: objects
+            objects: cards
         });
     }catch (e) {
         response.render('form1.hbs', {
@@ -61,18 +52,10 @@ app.get('/picture', (request, response) => {
 app.post('/picture', urlencodedParser, async (request, response) => {
     // console.log(request.body.picture_input);
     try {
-        if (request.body.picture_input === null) throw "Enter an item";
-
         let pictureOut = await api_call2.get_pictures(request.body.picture_input);
 
-        let objects = [];
-        for (var i = 0; i < pictureOut.length; i ++) {
-            objects[i] = { image: pictureOut[i], link: pictureOut[i] };
-        }
-        // console.log(weatherOut);
-        // console.log(pictureOut);
         response.render('form2.hbs', {
-            objects: objects
+            objects: pictureOut
         });
     }catch (e) {
         response.render('form2.hbs', {
