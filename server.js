@@ -34,6 +34,7 @@ app.get('/cards', (request, response) => {
 app.post('/cards', urlencodedParser, async (request, response) => {
     // console.log(request.body.country_input);
     try {
+        console.log(request.body.card_input);
         let weatherOut = await api_call1.get_cards(request.body.card_input);
         // console.log(weatherOut);
         response.render('form1.hbs', {

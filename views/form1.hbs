@@ -5,22 +5,37 @@
 
 <body>
 
-<form method="POST" action="/cards">
-    <div class="form-group">
-        <label for="card_input">Number of cards:</label>
-        <input type="number" class="form-control" name='card_input' id="card_input" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+<!--<form method="POST" action="/cards">-->
+    <!--<div class="form-group">-->
+        <!--<label for="card_input">Number of cards:</label>-->
+        <!--<input type="number" class="form-control" name='card_input' id="card_input" required>-->
+    <!--</div>-->
+    <!--<button type="submit" class="btn btn-primary">Submit</button>-->
 
-</form>
+<!--</form>-->
+<
 <p class="output" id="output">{{output}}</p>
 
-<!--<form id="weather-form" method="POST" action="/weather">-->
-    <!--<p>City:</p> <br>-->
-    <!--<input type="text" id="userInput" class="userInput" name="country" placeholder="Toronto">-->
-    <!--<input type="submit" value="Submit" class="breach-submit">-->
-<!--</form>-->
+<div class='container'>
+    <div class="row">
+        <div class="col-sm">
+            <img src={{output1}} alt="" width="200" height="200">
+        </div>
+        <div class="col-sm">
+            <img src={{output2}} alt="" width="200" height="200">
+        </div>
+        <div class="col-sm">
+            <img src={{output3}} alt="" width="200" height="200">
+        </div>
+        <div class="col-sm">
+            <img src={{output4}} alt="" width="200" height="200">
+        </div>
+        <div class="col-sm">
+            <img src={{output5}} alt="" width="200" height="200">
+        </div>
+    </div>
 
+</div>
 
 </body>
 </html>
