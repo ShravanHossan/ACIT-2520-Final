@@ -64,12 +64,15 @@ app.post('/picture', urlencodedParser, async (request, response) => {
         if (request.body.picture_input === null) throw "Enter an item";
 
         let pictureOut = await api_call2.get_pictures(request.body.picture_input);
+
+        let objects = [];
+        for (var i = 0; i < pictureOut.length; i ++) {
+            objects[i] = { image: pictureOut[i], link: pictureOut[i] };
+        }
         // console.log(weatherOut);
         // console.log(pictureOut);
         response.render('form2.hbs', {
-            output1: pictureOut[0],
-            output2: pictureOut[1],
-            output3: pictureOut[2]
+            objects: objects
         });
     }catch (e) {
         response.render('form2.hbs', {

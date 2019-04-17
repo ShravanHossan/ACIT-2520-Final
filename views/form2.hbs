@@ -15,17 +15,20 @@
     <p class="output" id="output">{{output}}</p>
 </form>
 <div class='container'>
-    <div class="row">
-        <div class="col-sm">
-            <img src={{output1}} alt="" width="200" height="200">
-        </div>
-        <div class="col-sm">
-            <img src={{output2}} alt="" width="200" height="200">
-        </div>
-        <div class="col-sm">
-            <img src={{output3}} alt="" width="200" height="200">
-        </div>
-    </div>
+    {{#each objects}}
+        <img src='{{link}}' alt=""> <br>
+    {{/each}}
+    <!--<div class="row">-->
+        <!--<div class="col-sm">-->
+            <!--<img src={{output1}} alt="" width="200" height="200">-->
+        <!--</div>-->
+        <!--<div class="col-sm">-->
+            <!--<img src={{output2}} alt="" width="200" height="200">-->
+        <!--</div>-->
+        <!--<div class="col-sm">-->
+            <!--<img src={{output3}} alt="" width="200" height="200">-->
+        <!--</div>-->
+    <!--</div>-->
 
 </div>
 </body>
