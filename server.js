@@ -23,20 +23,22 @@ app.get('/', (request, response) => {
     response.render('form1.hbs');
 });
 
-app.post('/weather', urlencodedParser, (request, response) => {
-    api_call1.get_weather(request.body).then(res => {
+app.post('/weather', urlencodedParser, async (request, response) => {
+    let weatherOut = await api_call1.get_weather(request.body);
+
+        console.log(weatherOut);
         response.render('form1.hbs', {
-            output: res
+            output: weatherOut.main
         });
 
-        app.get('/weather', (request, response)=> {
-            response.render('form1.hbs')
-        });
-    }).catch(err=> {
-            response.render('form1.hbs', {
-                output: err
-        })
-    })
+        //app.get('/weather', (request, response)=> {
+          //  response.render('form1.hbs')
+        //});
+    // }).catch(err=> {
+    //         response.render('form1.hbs', {
+    //             output: err
+    //     })
+    // });
 });
 
 app.listen(port, () => {

@@ -11,7 +11,7 @@ var get_weather = (city) => {
             // console.log(address.results[0].geometry.location);
             // console.log(`https://api.openweathermap.org/data/2.5/weather?lat=${lat_lng.lat}&lon=${lat_lng.lng}${key1}`);
             const weather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat_lng.lat}&lon=${lat_lng.lng}${key1}`);
-            resolve(weather.data.weather)
+            resolve(weather.data.weather[0])
         } catch (e) {
             reject(e.message)
         }
