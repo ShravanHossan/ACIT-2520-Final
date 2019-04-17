@@ -20,6 +20,10 @@ app.use((request, response, next) => {
 });
 hbs.registerPartials(__dirname + '/views/partials');
 app.get('/', (request, response) => {
+    response.render('index.hbs');
+});
+
+app.get('/weather', (request, response) => {
     response.render('form1.hbs');
 });
 
