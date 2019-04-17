@@ -5,7 +5,7 @@ const _ = require('lodash');
 // const json = require('json')
 
 //takes a location input and returns weather
-var get_cards = () => {
+var get_cards = (num) => {
     return new Promise(async (resolve, reject) => {
         try {
             const output = [];
@@ -17,8 +17,8 @@ var get_cards = () => {
             // console.log(JSON.stringify(weather.data.weather[0]));
             // resolve(weather.data.weather[0])
             // https://deckofcardsapi.com/api/deck/olg90pj2rubr/draw/?count=1
-            const cards = await axios.get(`https://deckofcardsapi.com/api/deck/${deck_id}/draw/?count=5`);
-            console.log(cards.data.cards[0].image);
+            const cards = await axios.get(`https://deckofcardsapi.com/api/deck/${deck_id}/draw/?count=${num}`);
+            // console.log(cards.data.cards[0].image);
             for (i in cards.data.cards)
                 output.push(cards.data.cards[i].image);
             // const cards_data = _.find(cards.data.cards[0], 'image');

@@ -7,33 +7,36 @@
 
 <form method="POST" action="/cards">
     <div class="form-group">
-        <!--<label for="card_input">Number of cards:</label>-->
-        <!--<input type="number" class="form-control" name='card_input' id="card_input" required>-->
+        <label for="card_input">Number of cards:</label>
+        <input type="number" class="form-control" name='card_input' id="card_input" required>
     </div>
-    <button type="submit" class="btn btn-primary">Draw 5</button>
+    <button type="submit" class="btn btn-primary">Draw</button>
 
 </form>
 
 <p class="output" id="output">{{output}}</p>
 
 <div class='container'>
-    <div class="row">
-        <div class="col-sm">
-            <img src={{output1}} alt="" width="200" height="200">
-        </div>
-        <div class="col-sm">
-            <img src={{output2}} alt="" width="200" height="200">
-        </div>
-        <div class="col-sm">
-            <img src={{output3}} alt="" width="200" height="200">
-        </div>
-        <div class="col-sm">
-            <img src={{output4}} alt="" width="200" height="200">
-        </div>
-        <div class="col-sm">
-            <img src={{output5}} alt="" width="200" height="200">
-        </div>
-    </div>
+    {{#each objects}}
+        <img src='{{link}}' alt=""> <br>
+    {{/each}}
+    <!--<div class="row">-->
+        <!--<div class="col-sm">-->
+            <!--<img src={{output1}} alt="" width="200" height="200">-->
+        <!--</div>-->
+        <!--<div class="col-sm">-->
+            <!--<img src={{output2}} alt="" width="200" height="200">-->
+        <!--</div>-->
+        <!--<div class="col-sm">-->
+            <!--<img src={{output3}} alt="" width="200" height="200">-->
+        <!--</div>-->
+        <!--<div class="col-sm">-->
+            <!--<img src={{output4}} alt="" width="200" height="200">-->
+        <!--</div>-->
+        <!--<div class="col-sm">-->
+            <!--<img src={{output5}} alt="" width="200" height="200">-->
+        <!--</div>-->
+    <!--</div>-->
 
 </div>
 
