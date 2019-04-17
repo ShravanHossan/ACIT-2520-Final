@@ -8,14 +8,14 @@ var get_weather = (city) => {
         try {
             const address = axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${city}${key2}`);
             address.then(result=> {
-                console.log(result);
-                let lat_lng = address.data.results[0].geometry.location;
+                // console.log(result.data);
+                let lat_lng = result.data.results[0].geometry.location;
                 // console.log(address.results[0].geometry.location);
                 // console.log(`https://api.openweathermap.org/data/2.5/weather?lat=${lat_lng.lat}&lon=${lat_lng.lng}${key1}`);
                 const weather = axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat_lng.lat}&lon=${lat_lng.lng}${key1}`);
                 weather.then((result)=> {
-                    console.log(result);
-                    resolve(result.weather.data.weather[0])
+                    // console.log(result);
+                    resolve(result.data.weather[0])
                 })
 
             })
