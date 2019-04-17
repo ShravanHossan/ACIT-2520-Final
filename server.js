@@ -21,7 +21,9 @@ app.use((request, response, next) => {
 });
 hbs.registerPartials(__dirname + '/views/partials');
 app.get('/', (request, response) => {
-    response.render('index.hbs');
+    response.render('index.hbs', {
+        title: "Welcome to my semi-response site"
+    });
 });
 
 app.get('/weather', (request, response) => {
