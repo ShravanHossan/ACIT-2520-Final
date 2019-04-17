@@ -9,14 +9,25 @@ const _ = require('lodash');
 var get_pictures = (query) => {
     return new Promise(async (resolve, reject) => {
         try {
+            let output = [];
             // const pictures = await axios.get(`https://pixabay.com/api/?key=${pixabay_key}&q=${encodeURIComponent(picturetype)}&image_type=photo`);
             const pictures = await axios.get(`https://images-api.nasa.gov/search?q=${query}`);
-            console.log(pictures.data.collection.items[0].links[0].href);
+            // console.log(pictures.data.collection.items[0].links[0].href);
             // let pic = _.find(pictures.data.collection, 'href');
-            let pic = pictures.data.collection.items[0].links[0].href;
-            let output = [];
-            output.push(pic);
-            console.log(output);
+            // console.log(pictures.data.collection.items);
+            for (i in pictures.data.collection.items){
+                e = pictures.data.collection.items[i].links[0].href;
+                // console.log(e.substring(0,36));
+                if (e.substring(0,36) === 'https://images-assets.nasa.gov/image')
+                    output.push(e);
+            }
+            // let pic = _.find(pictures.data.collection.items, 'href');
+            // console.log(pic);
+
+            // let pic = pictures.data.collection.items[0].links[0].href;
+            // console.log(output);
+            // output.push(pic);
+            // console.log(output);
             resolve(output)
         } catch (e) {
 

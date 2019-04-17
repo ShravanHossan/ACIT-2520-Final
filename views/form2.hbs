@@ -3,17 +3,29 @@
 
     {{> header}}
 
-<body>
+<body >
 
-<form method="POST" action="/picture">
+<form method="POST" action="/picture" style="margin: 100px">
     <div class="form-group">
         <label for="picture_input">Picture Target:</label>
         <input type="text" class="form-control" name='picture_input' id="picture_input" required>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
-    <img src={{output}} alt="">
-    <!--<p class="output" id="output">{{output}}</p>-->
+
+    <p class="output" id="output">{{output}}</p>
 </form>
+<div class='container'>
+    <div class="row">
+        <div class="col-sm">
+            <img src={{output1}} alt="" width="200" height="200">
+        </div>
+        <div class="col-sm">
+            <img src={{output2}} alt="" width="200" height="200">
+        </div>
+        <div class="col-sm">
+            <img src={{output3}} alt="" width="200" height="200">
+        </div>
+    </div>
 
 
 <!--<form id="weather-form" method="POST" action="/weather">-->
@@ -22,6 +34,6 @@
     <!--<input type="submit" value="Submit" class="breach-submit">-->
 <!--</form>-->
 
-
+</div>
 </body>
 </html>

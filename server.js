@@ -27,17 +27,17 @@ app.get('/', (request, response) => {
     });
 });
 
-app.get('/weather', (request, response) => {
+app.get('/cards', (request, response) => {
     response.render('form1.hbs');
 });
 
-app.post('/weather', urlencodedParser, async (request, response) => {
+app.post('/cards', urlencodedParser, async (request, response) => {
     // console.log(request.body.country_input);
     try {
         let weatherOut = await api_call1.get_weather(request.body.country_input);
         // console.log(weatherOut);
         response.render('form1.hbs', {
-            output: weatherOut.main
+            output1: weatherOut.main
         });
     }catch (e) {
         response.render('form1.hbs', {
@@ -52,15 +52,17 @@ app.get('/picture', (request, response) => {
 });
 
 app.post('/picture', urlencodedParser, async (request, response) => {
-    console.log(request.body.picture_input);
+    // console.log(request.body.picture_input);
     try {
         if (request.body.picture_input === null) throw "Enter an item";
 
         let pictureOut = await api_call2.get_pictures(request.body.picture_input);
         // console.log(weatherOut);
-        console.log(pictureOut);
+        // console.log(pictureOut);
         response.render('form2.hbs', {
-            output: pictureOut
+            output1: pictureOut[0],
+            output2: pictureOut[1],
+            output3: pictureOut[2]
         });
     }catch (e) {
         response.render('form2.hbs', {
