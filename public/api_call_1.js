@@ -4,14 +4,22 @@ const key2 = '&key=AIzaSyCfl21brHvRsQjVFWEEctFFdd47eEUJHOM';
 
 
 var get_weather = (city) => {
-    return new Promise(async (resolve, reject) => {
+    return new Promise((resolve, reject) => {
         try {
-            const address = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${city}${key2}`);
-            let lat_lng = address.data.results[0].geometry.location;
-            // console.log(address.results[0].geometry.location);
-            // console.log(`https://api.openweathermap.org/data/2.5/weather?lat=${lat_lng.lat}&lon=${lat_lng.lng}${key1}`);
-            const weather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat_lng.lat}&lon=${lat_lng.lng}${key1}`);
-            resolve(weather.data.weather[0])
+            const address = axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${city}${key2}`);
+            address.then(result=> {
+                console.log(result);
+                let lat_lng = address.data.results[0].geometry.location;
+                // console.log(address.results[0].geometry.location);
+                // console.log(`https://api.openweathermap.org/data/2.5/weather?lat=${lat_lng.lat}&lon=${lat_lng.lng}${key1}`);
+                const weather = axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat_lng.lat}&lon=${lat_lng.lng}${key1}`);
+                weather.then((result)=> {
+                    console.log(result);
+                    resolve(result.weather.data.weather[0])
+                })
+
+            })
+
         } catch (e) {
             reject(e.message)
         }
