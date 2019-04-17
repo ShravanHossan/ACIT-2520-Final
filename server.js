@@ -33,12 +33,6 @@ app.get('/cards', (request, response) => {
 
 app.post('/cards', urlencodedParser, async (request, response) => {
     // console.log(request.body.country_input);
-    if (request.body.card_input < 1){
-        response.render('form1.hbs', {
-            output: "Number has to be positive"
-
-        });
-    }
     try {
         console.log(request.body.card_input);
         let cards = await api_call1.get_cards(request.body.card_input);
