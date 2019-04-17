@@ -3,7 +3,7 @@ const key1 = '&APPID=e0dcf4ceae6f8222594cee6a185e5f8e';
 const key2 = '&key=AIzaSyCfl21brHvRsQjVFWEEctFFdd47eEUJHOM';
 // const json = require('json')
 
-
+//takes a location input and returns weather
 var get_weather = (city) => {
     return new Promise(async (resolve, reject) => {
         try {
