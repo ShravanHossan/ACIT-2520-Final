@@ -34,11 +34,15 @@ app.get('/cards', (request, response) => {
 app.post('/cards', urlencodedParser, async (request, response) => {
     // console.log(request.body.country_input);
     try {
-        console.log(request.body.card_input);
-        let weatherOut = await api_call1.get_cards(request.body.card_input);
+        // console.log(request.body.card_input);
+        let cards = await api_call1.get_cards();
         // console.log(weatherOut);
         response.render('form1.hbs', {
-            output1: weatherOut.main
+            output1: cards[0],
+            output2: cards[1],
+            output3: cards[2],
+            output4: cards[3],
+            output5: cards[4],
         });
     }catch (e) {
         response.render('form1.hbs', {
