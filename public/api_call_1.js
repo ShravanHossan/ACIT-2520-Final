@@ -1,8 +1,5 @@
 const axios = require('axios');
-const key1 = '&APPID=e0dcf4ceae6f8222594cee6a185e5f8e';
-const key2 = '&key=AIzaSyCfl21brHvRsQjVFWEEctFFdd47eEUJHOM';
 const _ = require('lodash');
-// const json = require('json')
 
 //takes a location input and returns weather
 var get_cards = (num) => {
@@ -25,9 +22,7 @@ var get_cards = (num) => {
         } catch (e) {
 
             reject(e);
-        }
-    })
-};
+        }})};
 
 module.exports = {
     get_cards

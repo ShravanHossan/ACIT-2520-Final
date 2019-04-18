@@ -14,12 +14,7 @@ app.use(bodyParser.json());
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
 
-app.use((request, response, next) => {
-    setTimeout(() => {
-        next();
-    }, 1000);
 
-});
 hbs.registerPartials(__dirname + '/views/partials');
 app.get('/', (request, response) => {
     response.render('index.hbs', {
@@ -50,7 +45,6 @@ app.get('/picture', (request, response) => {
 });
 
 app.post('/picture', urlencodedParser, async (request, response) => {
-    // console.log(request.body.picture_input);
     try {
         let pictureOut = await api_call2.get_pictures(request.body.picture_input);
 
