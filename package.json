@@ -6,6 +6,6 @@
     "body-parser": "latest",
     "express": "^4.16.4",
     "hbs": "^4.0.4",
-    "lodash": "^4.17.13"
+    "lodash": "^4.17.19"
   }
 }
